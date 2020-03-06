@@ -48,6 +48,7 @@ import com.android.systemui.qs.tiles.NotificationsTile;
 import com.android.systemui.qs.tiles.RoamingTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.WifiTile;
+import com.android.systemui.qs.tiles.SciApsTile;
 import com.android.systemui.settings.CurrentUserTracker;
 import com.android.systemui.statusbar.policy.BluetoothController;
 import com.android.systemui.statusbar.policy.CastController;
@@ -72,7 +73,7 @@ import java.util.Map;
 /** Platform implementation of the quick settings tile host **/
 public class QSTileHost implements QSTile.Host {
     private static final String TAG = "QSTileHost";
-    private static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG);
+    private static final boolean DEBUG = true;//Log.isLoggable(TAG, Log.DEBUG);
 
     private static final String TILES_SETTING = "sysui_qs_tiles";
 
@@ -272,6 +273,7 @@ public class QSTileHost implements QSTile.Host {
     }
 
     private QSTile<?> createTile(String tileSpec) {
+        Log.d(TAG, "createTile with tilespec" + tileSpec);
         if (tileSpec.equals("wifi")) return new WifiTile(this);
         else if (tileSpec.equals("bt")) return new BluetoothTile(this);
         else if (tileSpec.equals("inversion")) return new ColorInversionTile(this);
@@ -293,6 +295,10 @@ public class QSTileHost implements QSTile.Host {
             return new DdsTile(this);
         else if (tileSpec.equals("apn")) return new ApnTile(this);
         else if (tileSpec.startsWith(IntentTile.PREFIX)) return IntentTile.create(this,tileSpec);
+        else if (tileSpec.equals("sciaps")) {
+            Log.d(TAG, "createTile for sciaps");
+            return new SciApsTile(this);
+        }
         else throw new IllegalArgumentException("Bad tile spec: " + tileSpec);
     }
 

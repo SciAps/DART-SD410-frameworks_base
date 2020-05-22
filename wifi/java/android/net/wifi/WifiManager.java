@@ -997,12 +997,12 @@ public class WifiManager {
      * @return {@code true} if the operation succeeded, i.e., the scan was initiated
      */
     public boolean startScan() {
-        try {
-            mService.startScan(null, null);
-            return true;
-        } catch (RemoteException e) {
+    //    try {
+    //        mService.startScan(null, null);
+    //        return true;
+    //    } catch (RemoteException e) {
             return false;
-        }
+    //    }
     }
 
     /** @hide */
@@ -1190,11 +1190,11 @@ public class WifiManager {
      * @return the list of access points found in the most recent scan.
      */
     public List<ScanResult> getScanResults() {
-        try {
-            return mService.getScanResults(mContext.getOpPackageName());
-        } catch (RemoteException e) {
+    //    try {
+    //        return mService.getScanResults(mContext.getOpPackageName());
+    //    } catch (RemoteException e) {
             return null;
-        }
+    //    }
     }
 
     /**
@@ -1206,11 +1206,11 @@ public class WifiManager {
      * To change this setting, see {@link #ACTION_REQUEST_SCAN_ALWAYS_AVAILABLE}.
      */
     public boolean isScanAlwaysAvailable() {
-        try {
-            return mService.isScanAlwaysAvailable();
-        } catch (RemoteException e) {
+    //    try {
+    //        return mService.isScanAlwaysAvailable();
+    //    } catch (RemoteException e) {
             return false;
-        }
+    //    }
     }
 
     /**
@@ -1325,11 +1325,13 @@ public class WifiManager {
         if (mAppOps.noteOp(AppOpsManager.OP_WIFI_CHANGE) !=
                 AppOpsManager.MODE_ALLOWED)
             return false;
-        try {
-            return mService.setWifiEnabled(enabled);
-        } catch (RemoteException e) {
+        //try {
+            //return mService.setWifiEnabled(enabled);
+            Log.d(TAG, "Wi-Fi disabled by SciAps");
             return false;
-        }
+        //} catch (RemoteException e) {
+        //    return false;
+        //}
     }
 
     /**
@@ -1340,11 +1342,11 @@ public class WifiManager {
      * @see #isWifiEnabled()
      */
     public int getWifiState() {
-        try {
-            return mService.getWifiEnabledState();
-        } catch (RemoteException e) {
+//        try {
+//            return mService.getWifiEnabledState();
+//        } catch (RemoteException e) {
             return WIFI_STATE_UNKNOWN;
-        }
+//        }
     }
 
     /**
@@ -1353,7 +1355,8 @@ public class WifiManager {
      * @see #getWifiState()
      */
     public boolean isWifiEnabled() {
-        return getWifiState() == WIFI_STATE_ENABLED;
+        return false;
+        //return getWifiState() == WIFI_STATE_ENABLED;
     }
 
     /**

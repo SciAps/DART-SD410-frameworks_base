@@ -53,9 +53,10 @@ public class WifiCommand extends Svc.Command {
             if (validCommand) {
                 IWifiManager wifiMgr
                         = IWifiManager.Stub.asInterface(ServiceManager.getService(Context.WIFI_SERVICE));
-                try {
-                    wifiMgr.setWifiEnabled(flag);
-                }
+                //try {
+                    //wifiMgr.setWifiEnabled(flag);
+                    System.err.println("Wi-Fi disabled by SciAps");
+                //}
                 catch (RemoteException e) {
                     System.err.println("Wi-Fi operation failed: " + e);
                 }

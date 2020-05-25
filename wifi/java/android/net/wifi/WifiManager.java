@@ -601,31 +601,31 @@ public class WifiManager {
      * when when Wi-Fi is turned off, it can be null.
      */
     public List<WifiConfiguration> getConfiguredNetworks() {
-        try {
-            return mService.getConfiguredNetworks();
-        } catch (RemoteException e) {
+//        try {
+//            return mService.getConfiguredNetworks();
+//        } catch (RemoteException e) {
             return null;
-        }
+//        }
     }
 
     /** @hide */
     @SystemApi
     public List<WifiConfiguration> getPrivilegedConfiguredNetworks() {
-        try {
-            return mService.getPrivilegedConfiguredNetworks();
-        } catch (RemoteException e) {
+//        try {
+//            return mService.getPrivilegedConfiguredNetworks();
+//        } catch (RemoteException e) {
             return null;
-        }
+//        }
     }
 
     /** @hide */
     @SystemApi
     public WifiConnectionStatistics getConnectionStatistics() {
-        try {
-            return mService.getConnectionStatistics();
-        } catch (RemoteException e) {
+//        try {
+//            return mService.getConnectionStatistics();
+//        } catch (RemoteException e) {
             return null;
-        }
+//        }
     }
 
     /**
@@ -681,11 +681,11 @@ public class WifiManager {
      * @return the ID of the network on success, {@code -1} on failure.
      */
     private int addOrUpdateNetwork(WifiConfiguration config) {
-        try {
-            return mService.addOrUpdateNetwork(config);
-        } catch (RemoteException e) {
+//        try {
+//            return mService.addOrUpdateNetwork(config);
+//        } catch (RemoteException e) {
             return -1;
-        }
+//        }
     }
 
     /**
@@ -697,11 +697,11 @@ public class WifiManager {
      * @return {@code true} if the operation succeeded
      */
     public boolean removeNetwork(int netId) {
-        try {
-            return mService.removeNetwork(netId);
-        } catch (RemoteException e) {
+//        try {
+//            return mService.removeNetwork(netId);
+//        } catch (RemoteException e) {
             return false;
-        }
+//        }
     }
 
     /**
@@ -717,11 +717,11 @@ public class WifiManager {
      * @return {@code true} if the operation succeeded
      */
     public boolean enableNetwork(int netId, boolean disableOthers) {
-        try {
-            return mService.enableNetwork(netId, disableOthers);
-        } catch (RemoteException e) {
+//        try {
+//            return mService.enableNetwork(netId, disableOthers);
+//        } catch (RemoteException e) {
             return false;
-        }
+//        }
     }
 
     /**
@@ -732,11 +732,11 @@ public class WifiManager {
      * @return {@code true} if the operation succeeded
      */
     public boolean disableNetwork(int netId) {
-        try {
-            return mService.disableNetwork(netId);
-        } catch (RemoteException e) {
+//        try {
+//            return mService.disableNetwork(netId);
+//        } catch (RemoteException e) {
             return false;
-        }
+//        }
     }
 
     /**
@@ -745,12 +745,12 @@ public class WifiManager {
      * @return {@code true} if the operation succeeded
      */
     public boolean disconnect() {
-        try {
-            mService.disconnect();
-            return true;
-        } catch (RemoteException e) {
+//        try {
+//            mService.disconnect();
+//            return true;
+//        } catch (RemoteException e) {
             return false;
-        }
+//        }
     }
 
     /**
@@ -760,12 +760,12 @@ public class WifiManager {
      * @return {@code true} if the operation succeeded
      */
     public boolean reconnect() {
-        try {
-            mService.reconnect();
-            return true;
-        } catch (RemoteException e) {
+//        try {
+//            mService.reconnect();
+//            return true;
+//        } catch (RemoteException e) {
             return false;
-        }
+//        }
     }
 
     /**
@@ -775,12 +775,12 @@ public class WifiManager {
      * @return {@code true} if the operation succeeded
      */
     public boolean reassociate() {
-        try {
-            mService.reassociate();
-            return true;
-        } catch (RemoteException e) {
+//        try {
+//            mService.reassociate();
+//            return true;
+//        } catch (RemoteException e) {
             return false;
-        }
+//        }
     }
 
     /**
@@ -789,13 +789,13 @@ public class WifiManager {
      * it returned the expected response to the PING message.
      */
     public boolean pingSupplicant() {
-        if (mService == null)
+//        if (mService == null)
             return false;
-        try {
-            return mService.pingSupplicant();
-        } catch (RemoteException e) {
-            return false;
-        }
+//        try {
+//            return mService.pingSupplicant();
+//        } catch (RemoteException e) {
+//           return false;
+//        }
     }
 
     /**
@@ -807,11 +807,11 @@ public class WifiManager {
      * @hide
      */
     public List<WifiChannel> getChannelList() {
-        try {
-            return mService.getChannelList();
-        } catch (RemoteException e) {
+//        try {
+//            return mService.getChannelList();
+//        } catch (RemoteException e) {
             return null;
-        }
+//        }
     }
 
     /* Keep this list in sync with wifi_hal.h */
@@ -1008,12 +1008,12 @@ public class WifiManager {
     /** @hide */
     @SystemApi
     public boolean startScan(WorkSource workSource) {
-        try {
-            mService.startScan(null, workSource);
-            return true;
-        } catch (RemoteException e) {
+//        try {
+//            mService.startScan(null, workSource);
+//            return true;
+//        } catch (RemoteException e) {
             return false;
-        }
+//        }
     }
 
     /**
@@ -1024,12 +1024,12 @@ public class WifiManager {
      */
     @SystemApi
     public boolean startLocationRestrictedScan(WorkSource workSource) {
-        try {
-            mService.startLocationRestrictedScan(workSource);
-            return true;
-        } catch (RemoteException e) {
+ //       try {
+ //           mService.startLocationRestrictedScan(workSource);
+ //           return true;
+ //       } catch (RemoteException e) {
             return false;
-        }
+ //       }
     }
 
     /**
@@ -1049,22 +1049,22 @@ public class WifiManager {
      * @hide
      */
     public boolean startCustomizedScan(ScanSettings requested) {
-        try {
-            mService.startScan(requested, null);
-            return true;
-        } catch (RemoteException e) {
+//        try {
+//            mService.startScan(requested, null);
+//            return true;
+//        } catch (RemoteException e) {
             return false;
-        }
+//        }
     }
 
     /** @hide */
     public boolean startCustomizedScan(ScanSettings requested, WorkSource workSource) {
-        try {
-            mService.startScan(requested, workSource);
-            return true;
-        } catch (RemoteException e) {
+//        try {
+//            mService.startScan(requested, workSource);
+//            return true;
+//        } catch (RemoteException e) {
             return false;
-        }
+//        }
     }
 
     /**
@@ -1085,9 +1085,10 @@ public class WifiManager {
     }
     /** @hide */
     public boolean requestBatchedScan(BatchedScanSettings requested, WorkSource workSource) {
-        try {
+/*        try {
             return mService.requestBatchedScan(requested, new Binder(), workSource);
-        } catch (RemoteException e) { return false; }
+        } catch (RemoteException e) { return false; }*/
+        return false;
     }
 
     /**
@@ -1098,9 +1099,10 @@ public class WifiManager {
      */
     @SystemApi
     public boolean isBatchedScanSupported() {
-        try {
+/*        try {
             return mService.isBatchedScanSupported();
-        } catch (RemoteException e) { return false; }
+        } catch (RemoteException e) { return false; }*/
+        return false;
     }
 
     /**
@@ -1113,9 +1115,9 @@ public class WifiManager {
      * @hide
      */
     public void stopBatchedScan(BatchedScanSettings requested) {
-        try {
-            mService.stopBatchedScan(requested);
-        } catch (RemoteException e) {}
+//        try {
+//            mService.stopBatchedScan(requested);
+//        } catch (RemoteException e) {}
     }
 
     /**
@@ -1125,11 +1127,11 @@ public class WifiManager {
      */
     @SystemApi
     public List<BatchedScanResult> getBatchedScanResults() {
-        try {
-            return mService.getBatchedScanResults(mContext.getOpPackageName());
-        } catch (RemoteException e) {
+//        try {
+//            return mService.getBatchedScanResults(mContext.getOpPackageName());
+//        } catch (RemoteException e) {
             return null;
-        }
+//        }
     }
 
     /**
@@ -1153,9 +1155,9 @@ public class WifiManager {
      * @hide
      */
     public void pollBatchedScan() {
-        try {
-            mService.pollBatchedScan();
-        } catch (RemoteException e) { }
+//        try {
+//            mService.pollBatchedScan();
+//        } catch (RemoteException e) { }
     }
 
     /**
@@ -1166,11 +1168,11 @@ public class WifiManager {
      * @hide
      */
     public String getWpsNfcConfigurationToken(int netId) {
-        try {
-            return mService.getWpsNfcConfigurationToken(netId);
-        } catch (RemoteException e) {
+//        try {
+//            return mService.getWpsNfcConfigurationToken(netId);
+//        } catch (RemoteException e) {
             return null;
-        }
+//        }
     }
 
     /**
@@ -1178,11 +1180,11 @@ public class WifiManager {
      * @return the Wi-Fi information, contained in {@link WifiInfo}.
      */
     public WifiInfo getConnectionInfo() {
-        try {
-            return mService.getConnectionInfo();
-        } catch (RemoteException e) {
+//        try {
+//            return mService.getConnectionInfo();
+//        } catch (RemoteException e) {
             return null;
-        }
+//        }
     }
 
     /**
@@ -1223,11 +1225,11 @@ public class WifiManager {
      * @return {@code true} if the operation succeeded
      */
     public boolean saveConfiguration() {
-        try {
-            return mService.saveConfiguration();
-        } catch (RemoteException e) {
+//        try {
+//            return mService.saveConfiguration();
+//        } catch (RemoteException e) {
             return false;
-        }
+//        }
     }
 
     /**
@@ -1308,11 +1310,11 @@ public class WifiManager {
      * @return the DHCP information
      */
     public DhcpInfo getDhcpInfo() {
-        try {
-            return mService.getDhcpInfo();
-        } catch (RemoteException e) {
+//        try {
+//            return mService.getDhcpInfo();
+//        } catch (RemoteException e) {
             return null;
-        }
+//        }
     }
 
     /**
@@ -1381,15 +1383,16 @@ public class WifiManager {
      *         (both inclusive).
      */
     public static int calculateSignalLevel(int rssi, int numLevels) {
-        if (rssi <= MIN_RSSI) {
-            return 0;
-        } else if (rssi >= MAX_RSSI) {
-            return numLevels - 1;
-        } else {
-            float inputRange = (MAX_RSSI - MIN_RSSI);
-            float outputRange = (numLevels - 1);
-            return (int)((float)(rssi - MIN_RSSI) * outputRange / inputRange);
-        }
+//        if (rssi <= MIN_RSSI) {
+//            return 0;
+//        } else if (rssi >= MAX_RSSI) {
+//            return numLevels - 1;
+//        } else {
+//            float inputRange = (MAX_RSSI - MIN_RSSI);
+//            float outputRange = (numLevels - 1);
+//            return (int)((float)(rssi - MIN_RSSI) * outputRange / inputRange);
+//        }
+        return 0;
     }
 
     /**
@@ -1418,12 +1421,12 @@ public class WifiManager {
      * @hide Dont open up yet
      */
     public boolean setWifiApEnabled(WifiConfiguration wifiConfig, boolean enabled) {
-        try {
-            mService.setWifiApEnabled(wifiConfig, enabled);
-            return true;
-        } catch (RemoteException e) {
+//        try {
+//            mService.setWifiApEnabled(wifiConfig, enabled);
+//            return true;
+//        } catch (RemoteException e) {
             return false;
-        }
+//        }
     }
 
     /**
@@ -1436,11 +1439,11 @@ public class WifiManager {
      * @hide Dont open yet
      */
     public int getWifiApState() {
-        try {
-            return mService.getWifiApEnabledState();
-        } catch (RemoteException e) {
+//        try {
+//            return mService.getWifiApEnabledState();
+//        } catch (RemoteException e) {
             return WIFI_AP_STATE_FAILED;
-        }
+//        }
     }
 
     /**
@@ -1451,7 +1454,8 @@ public class WifiManager {
      * @hide Dont open yet
      */
     public boolean isWifiApEnabled() {
-        return getWifiApState() == WIFI_AP_STATE_ENABLED;
+//        return getWifiApState() == WIFI_AP_STATE_ENABLED;
+        return false;
     }
 
     /**
@@ -1461,11 +1465,12 @@ public class WifiManager {
      * @hide Dont open yet
      */
     public WifiConfiguration getWifiApConfiguration() {
-        try {
+/*        try {
             return mService.getWifiApConfiguration();
         } catch (RemoteException e) {
             return null;
-        }
+        }*/
+        return null;
     }
 
     /**
@@ -1475,12 +1480,12 @@ public class WifiManager {
      * @hide Dont open yet
      */
     public boolean setWifiApConfiguration(WifiConfiguration wifiConfig) {
-        try {
-            mService.setWifiApConfiguration(wifiConfig);
-            return true;
-        } catch (RemoteException e) {
+ //       try {
+ //           mService.setWifiApConfiguration(wifiConfig);
+ //           return true;
+ //       } catch (RemoteException e) {
             return false;
-        }
+ //       }
     }
 
    /**
@@ -1497,12 +1502,12 @@ public class WifiManager {
      * @hide
      */
     public boolean startWifi() {
-        try {
-            mService.startWifi();
-            return true;
-        } catch (RemoteException e) {
+//        try {
+//            mService.startWifi();
+//            return true;
+//        } catch (RemoteException e) {
             return false;
-        }
+//        }
     }
 
     /**
@@ -1517,12 +1522,12 @@ public class WifiManager {
      * @hide
      */
     public boolean stopWifi() {
-        try {
-            mService.stopWifi();
-            return true;
-        } catch (RemoteException e) {
+//        try {
+//            mService.stopWifi();
+//            return true;
+//        } catch (RemoteException e) {
             return false;
-        }
+//        }
     }
 
     /**
@@ -1581,11 +1586,11 @@ public class WifiManager {
      * @param enable true = setup and false = tear down TDLS
      */
     public void setTdlsEnabled(InetAddress remoteIPAddress, boolean enable) {
-        try {
-            mService.enableTdls(remoteIPAddress.getHostAddress(), enable);
-        } catch (RemoteException e) {
+//        try {
+//            mService.enableTdls(remoteIPAddress.getHostAddress(), enable);
+//        } catch (RemoteException e) {
             // Just ignore the exception
-        }
+//        }
     }
 
     /**
@@ -1595,11 +1600,11 @@ public class WifiManager {
      * @param enable true = setup and false = tear down TDLS
      */
     public void setTdlsEnabledWithMacAddress(String remoteMacAddress, boolean enable) {
-        try {
-            mService.enableTdlsWithMacAddress(remoteMacAddress, enable);
-        } catch (RemoteException e) {
+//        try {
+//            mService.enableTdlsWithMacAddress(remoteMacAddress, enable);
+//        } catch (RemoteException e) {
             // Just ignore the exception
-        }
+//        }
     }
 
     /* TODO: deprecate synchronous API and open up the following API */
@@ -1921,12 +1926,12 @@ public class WifiManager {
      * @hide
      */
     public void connect(WifiConfiguration config, ActionListener listener) {
-        if (config == null) throw new IllegalArgumentException("config cannot be null");
-        validateChannel();
+//        if (config == null) throw new IllegalArgumentException("config cannot be null");
+//        validateChannel();
         // Use INVALID_NETWORK_ID for arg1 when passing a config object
         // arg1 is used to pass network id when the network already exists
-        sAsyncChannel.sendMessage(CONNECT_NETWORK, WifiConfiguration.INVALID_NETWORK_ID,
-                putListener(listener), config);
+//        sAsyncChannel.sendMessage(CONNECT_NETWORK, WifiConfiguration.INVALID_NETWORK_ID,
+//                putListener(listener), config);
     }
 
     /**
@@ -1943,9 +1948,9 @@ public class WifiManager {
      * @hide
      */
     public void connect(int networkId, ActionListener listener) {
-        if (networkId < 0) throw new IllegalArgumentException("Network id cannot be negative");
-        validateChannel();
-        sAsyncChannel.sendMessage(CONNECT_NETWORK, networkId, putListener(listener));
+//        if (networkId < 0) throw new IllegalArgumentException("Network id cannot be negative");
+//        validateChannel();
+//        sAsyncChannel.sendMessage(CONNECT_NETWORK, networkId, putListener(listener));
     }
 
     /**
@@ -1967,9 +1972,9 @@ public class WifiManager {
      * @hide
      */
     public void save(WifiConfiguration config, ActionListener listener) {
-        if (config == null) throw new IllegalArgumentException("config cannot be null");
-        validateChannel();
-        sAsyncChannel.sendMessage(SAVE_NETWORK, 0, putListener(listener), config);
+//        if (config == null) throw new IllegalArgumentException("config cannot be null");
+//        validateChannel();
+//        sAsyncChannel.sendMessage(SAVE_NETWORK, 0, putListener(listener), config);
     }
 
     /**
@@ -1986,9 +1991,9 @@ public class WifiManager {
      * @hide
      */
     public void forget(int netId, ActionListener listener) {
-        if (netId < 0) throw new IllegalArgumentException("Network id cannot be negative");
-        validateChannel();
-        sAsyncChannel.sendMessage(FORGET_NETWORK, netId, putListener(listener));
+//        if (netId < 0) throw new IllegalArgumentException("Network id cannot be negative");
+//        validateChannel();
+//        sAsyncChannel.sendMessage(FORGET_NETWORK, netId, putListener(listener));
     }
 
     /**
@@ -2001,9 +2006,9 @@ public class WifiManager {
      * @hide
      */
     public void disable(int netId, ActionListener listener) {
-        if (netId < 0) throw new IllegalArgumentException("Network id cannot be negative");
-        validateChannel();
-        sAsyncChannel.sendMessage(DISABLE_NETWORK, netId, putListener(listener));
+//        if (netId < 0) throw new IllegalArgumentException("Network id cannot be negative");
+//        validateChannel();
+//        sAsyncChannel.sendMessage(DISABLE_NETWORK, netId, putListener(listener));
     }
 
     /**
@@ -2013,11 +2018,11 @@ public class WifiManager {
      * @hide
      */
     public void disableEphemeralNetwork(String SSID) {
-        if (SSID == null) throw new IllegalArgumentException("SSID cannot be null");
-        try {
-            mService.disableEphemeralNetwork(SSID);
-        } catch (RemoteException e) {
-        }
+//        if (SSID == null) throw new IllegalArgumentException("SSID cannot be null");
+//        try {
+//            mService.disableEphemeralNetwork(SSID);
+//        } catch (RemoteException e) {
+//        }
     }
 
     /**
@@ -2029,9 +2034,9 @@ public class WifiManager {
      * initialized again
      */
     public void startWps(WpsInfo config, WpsCallback listener) {
-        if (config == null) throw new IllegalArgumentException("config cannot be null");
-        validateChannel();
-        sAsyncChannel.sendMessage(START_WPS, 0, putListener(listener), config);
+//        if (config == null) throw new IllegalArgumentException("config cannot be null");
+//        validateChannel();
+//        sAsyncChannel.sendMessage(START_WPS, 0, putListener(listener), config);
     }
 
     /**
@@ -2042,8 +2047,8 @@ public class WifiManager {
      * initialized again
      */
     public void cancelWps(WpsCallback listener) {
-        validateChannel();
-        sAsyncChannel.sendMessage(CANCEL_WPS, 0, putListener(listener));
+//        validateChannel();
+//        sAsyncChannel.sendMessage(CANCEL_WPS, 0, putListener(listener));
     }
 
     /**
@@ -2054,13 +2059,13 @@ public class WifiManager {
      * @hide
      */
     public Messenger getWifiServiceMessenger() {
-        try {
-            return mService.getWifiServiceMessenger();
-        } catch (RemoteException e) {
+//        try {
+//            return mService.getWifiServiceMessenger();
+//        } catch (RemoteException e) {
+//            return null;
+//        } catch (SecurityException e) {
             return null;
-        } catch (SecurityException e) {
-            return null;
-        }
+//        }
     }
 
 
@@ -2069,11 +2074,11 @@ public class WifiManager {
      * @hide
      */
     public String getConfigFile() {
-        try {
-            return mService.getConfigFile();
-        } catch (RemoteException e) {
+//        try {
+//            return mService.getConfigFile();
+//        } catch (RemoteException e) {
             return null;
-        }
+//        }
     }
 
     /**
@@ -2480,11 +2485,11 @@ public class WifiManager {
      * @hide pending API council approval
      */
     public boolean isMulticastEnabled() {
-        try {
-            return mService.isMulticastEnabled();
-        } catch (RemoteException e) {
+ //       try {
+ //           return mService.isMulticastEnabled();
+ //       } catch (RemoteException e) {
             return false;
-        }
+ //       }
     }
 
     /**
@@ -2492,12 +2497,12 @@ public class WifiManager {
      * @hide no intent to publish
      */
     public boolean initializeMulticastFiltering() {
-        try {
-            mService.initializeMulticastFiltering();
-            return true;
-        } catch (RemoteException e) {
+//        try {
+//            mService.initializeMulticastFiltering();
+//            return true;
+//        } catch (RemoteException e) {
              return false;
-        }
+//        }
     }
 
     protected void finalize() throws Throwable {
@@ -2543,11 +2548,11 @@ public class WifiManager {
      * @hide
      */
     public void enableAggressiveHandover(int enabled) {
-        try {
-            mService.enableAggressiveHandover(enabled);
-        } catch (RemoteException e) {
+//        try {
+//            mService.enableAggressiveHandover(enabled);
+//        } catch (RemoteException e) {
 
-        }
+//        }
     }
 
     /**
@@ -2556,11 +2561,11 @@ public class WifiManager {
      * @hide
      */
     public int getAggressiveHandover() {
-        try {
-            return mService.getAggressiveHandover();
-        } catch (RemoteException e) {
+//        try {
+//            return mService.getAggressiveHandover();
+//        } catch (RemoteException e) {
             return 0;
-        }
+//        }
     }
 
     /**
@@ -2568,11 +2573,11 @@ public class WifiManager {
      * @hide
      */
     public void setAllowScansWithTraffic(int enabled) {
-        try {
-            mService.setAllowScansWithTraffic(enabled);
-        } catch (RemoteException e) {
+//        try {
+//            mService.setAllowScansWithTraffic(enabled);
+//        } catch (RemoteException e) {
 
-        }
+//        }
     }
 
     /**
@@ -2580,11 +2585,11 @@ public class WifiManager {
      * @hide
      */
     public int getAllowScansWithTraffic() {
-        try {
-            return mService.getAllowScansWithTraffic();
-        } catch (RemoteException e) {
+//        try {
+//            return mService.getAllowScansWithTraffic();
+//        } catch (RemoteException e) {
             return 0;
-        }
+//        }
     }
 
 

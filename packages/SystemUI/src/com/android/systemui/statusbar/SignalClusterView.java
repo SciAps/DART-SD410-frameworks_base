@@ -345,6 +345,7 @@ public class SignalClusterView
     private void apply() {
         if (mWifiGroup == null) return;
 
+        mWifiVisible = false;
         mVpn.setVisibility(mVpnVisible ? View.VISIBLE : View.GONE);
         if (DEBUG) Log.d(TAG, String.format("vpn: %s", mVpnVisible ? "VISIBLE" : "GONE"));
         if (mWifiVisible) {

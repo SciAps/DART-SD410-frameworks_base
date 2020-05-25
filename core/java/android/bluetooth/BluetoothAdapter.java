@@ -506,11 +506,12 @@ public final class BluetoothAdapter {
      */
     public boolean isEnabled() {
 
-        try {
-            synchronized(mManagerCallback) {
-                if (mService != null) return mService.isEnabled();
-            }
-        } catch (RemoteException e) {Log.e(TAG, "", e);}
+//        try {
+//            synchronized(mManagerCallback) {
+//                if (mService != null) return mService.isEnabled();
+//            }
+//        } catch (RemoteException e) {Log.e(TAG, "", e);}
+        Log.d(TAG, "Bluetooth is disabled by SciAps");
         return false;
     }
 
@@ -526,19 +527,19 @@ public final class BluetoothAdapter {
      * @return current state of Bluetooth adapter
      */
     public int getState() {
-        try {
-            synchronized(mManagerCallback) {
-                if (mService != null)
-                {
-                    int state=  mService.getState();
-                    if (VDBG) Log.d(TAG, "" + hashCode() + ": getState(). Returning " + state);
-                    return state;
-                }
-                // TODO(BT) there might be a small gap during STATE_TURNING_ON that
-                //          mService is null, handle that case
-            }
-        } catch (RemoteException e) {Log.e(TAG, "", e);}
-        if (DBG) Log.d(TAG, "" + hashCode() + ": getState() :  mService = null. Returning STATE_OFF");
+//        try {
+//            synchronized(mManagerCallback) {
+//                if (mService != null)
+//                {
+//                    int state=  mService.getState();
+//                    if (VDBG) Log.d(TAG, "" + hashCode() + ": getState(). Returning " + state);
+//                    return state;
+//                }
+//                // TODO(BT) there might be a small gap during STATE_TURNING_ON that
+//                //          mService is null, handle that case
+//            }
+//        } catch (RemoteException e) {Log.e(TAG, "", e);}
+//        if (DBG) Log.d(TAG, "" + hashCode() + ": getState() :  mService = null. Returning STATE_OFF");
         return STATE_OFF;
     }
 
@@ -570,13 +571,14 @@ public final class BluetoothAdapter {
      *         immediate error
      */
     public boolean enable() {
-        if (isEnabled() == true){
-            if (DBG) Log.d(TAG, "enable(): BT is already enabled..!");
-            return true;
-        }
-        try {
-            return mManagerService.enable(ActivityThread.currentPackageName());
-        } catch (RemoteException e) {Log.e(TAG, "", e);}
+//        if (isEnabled() == true){
+//            if (DBG) Log.d(TAG, "enable(): BT is already enabled..!");
+//            return true;
+//        }
+//        try {
+//            return mManagerService.enable(ActivityThread.currentPackageName());
+//        } catch (RemoteException e) {Log.e(TAG, "", e);}
+        Log.d(TAG, "Bluetooth is disabled by SciAps");
         return false;
     }
 

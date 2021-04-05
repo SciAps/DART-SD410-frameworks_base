@@ -34,6 +34,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.os.RemoteException;
+import android.os.SystemProperties;
 import android.os.WorkSource;
 import android.os.Messenger;
 import android.util.Log;
@@ -545,6 +546,8 @@ public class WifiManager {
      */
     private static final int MAX_ACTIVE_LOCKS = 50;
 
+    private static final String KEY_WIFI_STATE_ENABLE = "persist.wifi.state.enable";
+
     /* Number of currently active WifiLocks and MulticastLocks */
     private int mActiveLockCount;
 
@@ -579,6 +582,13 @@ public class WifiManager {
         mService = service;
         init();
         mAppOps = (AppOpsManager)context.getSystemService(Context.APP_OPS_SERVICE);
+
+        if (SystemProperties.getBoolean(KEY_WIFI_STATE_ENABLE, false)) {
+            if (!isWifiEnabled()) {
+                Log.i(TAG, "Auto enable WiFi");
+                setWifiEnabled(true);
+            }
+        }
     }
 
     /**
@@ -1326,7 +1336,11 @@ public class WifiManager {
                 AppOpsManager.MODE_ALLOWED)
             return false;
         try {
-            return mService.setWifiEnabled(enabled);
+            boolean success = mService.setWifiEnabled(enabled);
+            if (success) {
+                SystemProperties.set(KEY_WIFI_STATE_ENABLE, enabled ? "true" : "false");
+            }
+            return success;
         } catch (RemoteException e) {
             return false;
         }
